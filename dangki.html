@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng kí tài khoản</title>
+    <script src="bootstrap-4.5.0-dist/js/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.min.css">
+    <script src="bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
+    <script>
+      function check_tk(){
+            reg_tk=/^[a-z0-9_-]{6,12}$/;
+            var tk=document.getElementById("tk").value;
+            if(reg_tk.test(tk) == false)
+            {
+                document.getElementById("ertk").innerHTML = "Tài Khoản không hợp lệ!!";
+                return false
+            }
+            else
+            {
+                document.getElementById("ertk").innerHTML =" ";
+                return true
+            }
+        }
+        function check_mk(){
+            reg_mk = /^[a-z0-9_-]{6,12}$/
+            var mk=document.getElementById("mk").value;
+            if(reg_mk.test(mk) == false)
+            {
+                document.getElementById("ermk").innerHTML = "Mật khẩu từ 6-12 kí tự gồm chữ và số!";
+                return false
+            }
+            else
+            {
+                document.getElementById("ermk").innerHTML =" ";
+                return true
+            }
+        }
+        
+        function check_nlmk(){
+            var mk=document.getElementById("mk").value;
+            var nlmk=document.getElementById("nlmk").value;
+            if (mk == nlmk){
+                document.getElementById("ernlmk").innerHTML = " ";
+                return true
+            }
+            else
+            {
+                document.getElementById("ernlmk").innerHTML ="Nhập lại mật khẩu không đúng";
+                return false
+            }
+        }
+        function check_hvt() {
+            var reg_hvt = /^[A-Z]+[A-Za-z]*$/
+            var hvt = document.getElementById('hvt').value;
+            if (reg_hvt.test(hvt) == false) {
+                document.getElementById('erhvt').innerHTML = "Tên Đăng Nhập Phải Bắt Đầu Bằng Chữ Hoa";
+                return false;
+            } else
+                document.getElementById('erhvt').innerHTML = ""
+            return true;
+            }
+
+        function check_mail(){
+            reg_mail=/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+            var mail = document.getElementById("email").value;
+            if(reg_mail.test(mail) == false)
+            {
+                document.getElementById("eremail").innerHTML = "Mail không hợp lệ!!!";
+                return false
+            }
+            else
+            {
+                document.getElementById("eremail").innerHTML = " ";
+                return true
+            }
+        }
+        function check_sdt(){
+            reg_sdt=/^[0][0-9]{9}$/
+            var sdt = document.getElementById("sdt").value;
+            if(reg_sdt.test(sdt) == false)
+            {
+                document.getElementById("ersdt").innerHTML = "Số điện thoại không hợp lệ!!!";
+                return false
+            }
+            else
+            {
+                document.getElementById("ersdt").innerHTML = " ";
+                return true
+            }
+        }
+        function dkthanhcong(){
+          window.alert("Đăng kí thành công")
+        }
+    </script>
+</head>
+<body>
+  <div class="container" style="text-align: right;">
+    
+    <form class="horizontal-form">
+      <h4 style="text-align: center;">Đăng kí tài khoản</h4>
+      <div class="form-group row" style="margin-top: 50px;">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3" for="tk">Tên Đăng nhập:</label>
+        <input type="text" class="form-control col-xs-8 col-sm-8 col-md-6 col-lg-6" id="tk" onblur="check_tk()">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="text-align: left;"> 
+          <span id="ertk"></span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3" for="mk">Mật khẩu:</label>
+        <input type="password" class="form-control col-xs-8 col-sm-8 col-md-6 col-lg-6" id="mk" onblur="check_mk()">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3"  style="text-align: left;">
+          <span id="ermk"></span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3" for="nlmk">Nhập lại mật khẩu:</label>
+        <input type="password" class="form-control col-xs-8 col-sm-8 col-md-6 col-lg-6" id="nlmk" onblur="check_nlmk()">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3"  style="text-align: left;">
+          <span id="ernlmk"></span>
+        </div>
+      </div>
+      <h4 style="text-align: center;">Thông tin khách hàng</h4>
+      <div class="form-group row">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3" for="hvt">Họ và tên:</label>
+        <input type="text" class="form-control col-xs-8 col-sm-8 col-md-6 col-lg-6" id="hvt" onblur="check_hvt()">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3"  style="text-align: left;">
+          <span id="erhvt"></span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3">Ngày sinh:</label>
+        <input type="date" class="form-control col-xs-8 col-sm-8 col-md-6 col-lg-6" >
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3"  style="text-align: left;">
+          <span></span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3">Địa chỉ:</label>
+        <input type="text" class="form-control col-xs-8 col-sm-8 col-md-6 col-lg-6">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3"  style="text-align: left;">
+          <span></span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3">Giới tính:</label>
+        <div class="col-xs-8 col-sm-8 col-md-6 col-lg-6" style="text-align: left;">
+          <input type="radio" name="rdo"><span>Nam</span>&nbsp;<input type="radio" name="rdo"><span>Nữ</span>
+        </div>
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3"  style="text-align: left;">
+          <span></span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3" for="email">Email:</label>
+        <input type="text" class="form-control col-xs-8 col-sm-8 col-md-6 col-lg-6" id="email" onblur="check_mail()">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3"  style="text-align: left;">
+          <span id="eremail"></span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="label-control col-xs-4 col-sm-4 col-md-3 col-lg-3" for="sdt">Số điện thoại:</label>
+        <input type="text" class="form-control col-xs-8 col-sm-8 col-md-6 col-lg-6" id="sdt" onblur="check_sdt()">
+        <div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3"  style="text-align: left;">
+          <span id="ersdt"></span>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <a href="main2.html" style="color:white;text-decoration: none;"><button type="button" class="btn btn-primary" onclick="dkthanhcong()">Đăng Ký</button></a>
+        <a href="main2.html" style="color:white;text-decoration: none;"><button type="reset" class="btn btn-danger"><a href="main2.html" style="color:white;text-decoration: none;">Hủy</button></a>
+    </div>
+   
+    </form>
+  </div>
+</body>
+
+</html>
